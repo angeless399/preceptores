@@ -18,7 +18,7 @@ if(!isset($_SESSION['user'])){
     <main>
     <header>
         <?php
-        include("../include/header_admin.html");
+        include("include/header_admin.html");
         ?>
     </header>
     <nav>
@@ -27,7 +27,7 @@ if(!isset($_SESSION['user'])){
     </nav>
     <footer>   
     <?php
-      include("../include/fooder.html");
+      include("include/fooder_admin.html");
       ?>
     </footer>
     </main>

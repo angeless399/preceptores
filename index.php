@@ -11,7 +11,7 @@
   <header>
     <p class="tit_encabezado">Escuela Secundaria - Sistema Preceptores por Curso</p>
     <div class="head">
-      <a href="inicio_admin.php" class="boton">Administración</a>
+      <a href="admin/inicio_admin.php" class="boton">Administración</a>
     </div>
   </header>
   <div class="contenedor" id="contenedor">
@@ -54,9 +54,12 @@
       <!-- Fin de contenido -->
       </section>
     <footer>
-      <?php
-      include("include/fooder.html");
-      ?>
+    <div class="imagen">
+    <img src="imagenes/footer2.png" width="100%" />
+    <div class="text">
+      <p><span>© 2021 - López María de los Angeles - CURSO PHP 2021 - COMISION 2115</span></p>
+    </div> 
+    </div>    
     </footer>
   </div>
   <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>

@@ -20,7 +20,7 @@
 	{
 		session_start();
 		$_SESSION['user']=$_POST['usuario'];
-		header('location:admin/adminstracion.php');
+		header('location:adminstracion.php');
 	}
 	else {echo '<script>alert("Datos Incorrectos. Intentelo nuevamente.")</script>';}
 }?>
