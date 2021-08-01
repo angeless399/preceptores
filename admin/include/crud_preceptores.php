@@ -1,15 +1,14 @@
 <h1> CRUD preceptores</h1>
+
 <?php
 include ('../php/conexion.php');
-?>
-
-<?php /* COMIENZO AGREGAR NUEVO REGISTRO */ ?>
-<h2>Insertar registro </h2>
+/* COMIENZO AGREGAR NUEVO REGISTRO */ ?>
+<h2>Agregar nuevo preceptor </h2>
  <form action="#" method="post">
  	<input type="text" name="nombre" placeholder="Ing. nombre del preceptor">
 	 <input type="text" name="apellido" placeholder="Ing. apellido del preceptor">
  	<input type="email" name="institucional" placeholder="Ing. correo institucional">
-	 <input type="email" name="alternativo" placeholder="Ing. correo alternativo">
+	 <input type="email" name="alternativo" placeholder="Ing. correo personal">
  	<input type="submit" name="insertar" value="insertar">
  </form>
 <?php 
@@ -69,7 +68,7 @@ if(isset($_GET['id_borrar'])){
 /* FIN BORRAR REGISTRO */
 ?>
 
-<h2>Mostrar registros</h2>
+<h2>Preceptores</h2>
 <?php
 /* COMIENZO MOSTRAR REGISTROS */
 $sql="SELECT * FROM preceptores";
@@ -95,8 +94,8 @@ if(mysqli_num_rows($consulta)>0){
 			<td>'.$registro['nombre_precep'].'</td>
 			<td>'.$registro['correo_inst_precep'].'</td>
 			<td>'.$registro['correo_alt_precep'].'</td>
-			<td><a href="crud_preceptores.php?id_editar='.$registro['id_precep'].'">editar</a></td>
-			<td><a href="crud_preceptores.php?id_borrar='.$registro['id_precep'].'" onclick="confirm(\'Seguro?\')">borrar</a></td>
+			<td><a href="../admin/administracion.php?id_editar='.$registro['id_precep'].'">editar</a></td>
+			<td><a href="../admin/administracion.php?id_borrar='.$registro['id_precep'].'" onclick="confirm(\'Seguro?\')">borrar</a></td>
 		</tr>
 		';
 	}

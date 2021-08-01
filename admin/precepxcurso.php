@@ -3,6 +3,7 @@ session_start();
 if(!isset($_SESSION['user'])){
     header('location:index.php');
 }else{
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,9 +23,14 @@ if(!isset($_SESSION['user'])){
         ?>
     </header>
     <nav>
-        <a href="">ABM preceptores</a>
-        <a href=""></a>
+        <a href="administracion.php">ABM preceptores</a>
+        <a href="precepxcurso.php">Preceptores por curso</a>
     </nav>
+    <div class="crud">
+            <?php
+        include("include/cursos_precep.php");
+        ?>
+    </div>
     <footer>   
     <?php
       include("include/fooder_admin.html");

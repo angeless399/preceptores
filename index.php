@@ -11,7 +11,7 @@
   <header>
     <p class="tit_encabezado">Escuela Secundaria - Sistema Preceptores por Curso</p>
     <div class="head">
-      <a href="admin/inicio_admin.php" class="boton">Administración</a>
+      <a href="admin/inicio_admin.php" class="boton" target ="_blank">Administración</a>
     </div>
   </header>
   <div class="contenedor" id="contenedor">
@@ -28,9 +28,9 @@
             <option value="1">CBT</option>
             <option value="2">IPP</option>
             <option value="3">ADO</option>
-            <option value="4">PROG</option>
+            <!--<option value="4">PROG</option>
             <option value="5">CATT</option>
-            <option value="6">EGEOR</option>
+            <option value="6">EGEOR</option>-->
           </select>
           <select id="turno" name="turno">
             <option value="">Turno</option>
