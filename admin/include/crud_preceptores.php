@@ -1,15 +1,15 @@
-<h1> CRUD preceptores</h1>
+<h1 class="titulo_admin"> ABM preceptores</h1>
 
 <?php
 include ('../php/conexion.php');
 /* COMIENZO AGREGAR NUEVO REGISTRO */ ?>
-<h2>Agregar nuevo preceptor </h2>
- <form action="#" method="post">
+ <form action="#" method="post" class="login">
+ 	<h2 class="tit-form">Nuevo Preceptor</h2>
  	<input type="text" name="nombre" placeholder="Ing. nombre del preceptor">
 	 <input type="text" name="apellido" placeholder="Ing. apellido del preceptor">
  	<input type="email" name="institucional" placeholder="Ing. correo institucional">
 	 <input type="email" name="alternativo" placeholder="Ing. correo personal">
- 	<input type="submit" name="insertar" value="insertar">
+ 	<input type="submit" name="insertar" value="AGREGAR PRECEPTOR" class="btn_submit">
  </form>
 <?php 
 if(isset($_POST['insertar'])){
@@ -18,7 +18,7 @@ if(isset($_POST['insertar'])){
 	$c_institucional=$_POST['institucional'];
 	$c_alternativo=$_POST['alternativo'];
 	$sql="INSERT INTO preceptores (nombre_precep, apellido_precep, correo_inst_precep, correo_alt_precep) VALUE ('$nombre', '$apellido', '$c_institucional', '$c_alternativo')";
-	$insertar=mysqli_query($conexion, $sql)? print("registro agregado") : print("error al agregar registro ".mysqli_error($conexion));
+	$insertar=mysqli_query($conexion, $sql)? print("<script>alert('Nuevo Preceptor Registrado'); window.location ='administracion.php'</script>") : print("<script>alert('error'); window.location ='administracion.php'</script>"); 
 }
 /* FIN AGREGAR NUEVO REGISTRO */
 ?>
@@ -31,13 +31,13 @@ if(isset($_GET['id_editar'])){
 	$ejecutar=mysqli_query($conexion,$sql);
 	$registro=mysqli_fetch_assoc($ejecutar);
 	echo '
-	<h2>Actualizar registro </h2>
- 	<form action="#" method="post">
+ 	<form action="#" method="post" class="login">
+	<h2 class="tit-form">Actualizar registro </h2>
  	<input type="text" name="nombre" value="'.$registro['nombre_precep'].'">
  	<input type="text" name="apellido" value="'.$registro['apellido_precep'].'">
  	<input type="email" name="institucional" value="'.$registro['correo_inst_precep'].'">
 	<input type="email" name="alternativo" value="'.$registro['correo_alt_precep'].'">
- 	<input type="submit" name="actualizar" value="actualizar">
+ 	<input type="submit" name="actualizar" value="ACTUALIZAR" class="btn_submit">
  	</form>
 	';
 }
@@ -47,7 +47,7 @@ if(isset($_POST['actualizar'])){
 	$actualizar_c_inst=$_POST['institucional'];
 	$actualizar_c_alt=$_POST['alternativo'];
 	$sql="UPDATE preceptores SET nombre_precep='$actualizar_nbr', apellido_precep='$actualizar_apel', correo_inst_precep='$actualizar_c_inst', correo_alt_precep='$actualizar_c_alt' WHERE id_precep='$id'";
-	$ejecutar_update=mysqli_query($conexion,$sql)? print("ok") : print("error");
+	$ejecutar_update=mysqli_query($conexion,$sql)? print("<script>alert('Registro Actualizado'); window.location ='administracion.php'</script>") : print("<script>alert('Error'); window.location ='administracion.php'</script>"); 
 }
 /* FIN ACTUALIZAR REGISTRO */
 ?>
@@ -55,53 +55,42 @@ if(isset($_POST['actualizar'])){
 <?php
 /* COMIENZO BORRAR REGISTRO */
 if(isset($_GET['id_borrar'])){
-	echo '<h2>borrar registros</h2>';
+	/*echo '<h2>borrar registros</h2>';*/
 	$id_borrar=$_GET['id_borrar'];
-	/*$sql="SELECT foto FROM productos WHERE id_prod='$id_borrar'";
-	$consulta=mysqli_query($conexion, $sql);
-	$registro=mysqli_fetch_assoc($consulta);
-	$img_borrar="imagenes/".$registro['foto'];
-	unlink("$img_borrar");*/
 	$sql="DELETE FROM preceptores WHERE id_precep='$id_borrar'";
-	$borrar=mysqli_query($conexion,$sql) ? print("Registro Eliminado") : print("error al borrar"); 
+	$borrar=mysqli_query($conexion,$sql) ? print("<script>alert('Registro Eliminado'); window.location ='administracion.php'</script>") : print("<script>alert('error'); window.location ='administracion.php'</script>"); 
 }
 /* FIN BORRAR REGISTRO */
 ?>
 
-<h2>Preceptores</h2>
+<h2 class="tit-form">Listado Preceptores</h2>
 <?php
 /* COMIENZO MOSTRAR REGISTROS */
 $sql="SELECT * FROM preceptores";
 $consulta=mysqli_query($conexion,$sql);
 ?>
-<table border="">
-	<tr>
-		<th>ID</th>
-		<th>APELLIDO</th>
-		<th>NOMBRE</th>
-		<th>CORREO INSTITUCIONAL</th>
-		<th>CORREO PERSONAL</th>
-		<th>EDITAR</th>
-		<th>BORRAR</th>
-	</tr>
 <?php
 if(mysqli_num_rows($consulta)>0){
+	$color = '#fff';
 	while($registro= mysqli_fetch_assoc($consulta)){
+		if($registro['id_precep']!=1){
+		if($color == '#ccc'){$color = 'transparent';}else{$color ='#ccc';}
 		echo '
-		<tr>
-			<td>'.$registro['id_precep'].'</td>
-			<td>'.$registro['apellido_precep'].'</td>
-			<td>'.$registro['nombre_precep'].'</td>
-			<td>'.$registro['correo_inst_precep'].'</td>
-			<td>'.$registro['correo_alt_precep'].'</td>
-			<td><a href="../admin/administracion.php?id_editar='.$registro['id_precep'].'">editar</a></td>
-			<td><a href="../admin/administracion.php?id_borrar='.$registro['id_precep'].'" onclick="confirm(\'Seguro?\')">borrar</a></td>
-		</tr>
-		';
+		<div class="registro" style="background-color:'.$color.'">
+			<div class="gr_txt_reg">
+				<div class="txt_reg"><b>Preceptor: </b>'.$registro['apellido_precep'].' '.$registro['nombre_precep'].'</div>
+				<div class="txt_reg"><b>Email institucional: </b>'.$registro['correo_inst_precep'].'</div>
+				<div class="txt_reg"><b>Email Personal: </b>'.$registro['correo_alt_precep'].'</div>
+			</div>
+			<div class="btn_reg" >
+				<a href="../admin/administracion.php?id_editar='.$registro['id_precep'].'"><span class="lnr lnr-pencil"></span></a>
+				<a href="../admin/administracion.php?id_borrar='.$registro['id_precep'].'" onclick="return confirm(\'Seguro que desea eliminar este registro. No sera recuperable.\')"><span class="lnr lnr-trash"></span></a>
+			</div>
+		</div>';
+		}
 	}
-	echo '</table>';
 }else{
- echo "tabla vacia";
+ echo "consulta vacia";
 }
 mysqli_free_result($consulta);
 mysqli_close($conexion);

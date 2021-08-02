@@ -13,6 +13,8 @@ if(!isset($_SESSION['user'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="css/estilos_admin.css">
+    <link rel="stylesheet" href="iconos/style.css">	
     <title>Administración preceptores</title>
 </head>
 <body style="background-image:none; background-color:#fff;">
@@ -22,12 +24,12 @@ if(!isset($_SESSION['user'])){
         include("include/header_admin.html");
         ?>
     </header>
-    <nav>
-        <a href="administracion.php">ABM preceptores</a>
-        <a href="precepxcurso.php">Preceptores por curso</a>
+    <nav class="nav">
+        <a href="administracion.php" class="btn_nav">ABM preceptores</a>
+        <a href="precepxcurso.php" class="btn_nav">Preceptores por curso</a>
     </nav>
-    <div class="crud">
-            <?php
+    <div class="contenedor">
+        <?php
         include("include/crud_preceptores.php");
         ?>
     </div>

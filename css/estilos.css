@@ -46,7 +46,21 @@ header a {
 	width: 150px;
 	text-align: center;
 }
-
+.nav {
+	background-color: #3C6B7D;
+	width: 100%;
+	padding: 10px;
+}
+.nav .btn_nav {
+	color: #fff;
+	width: 180px;
+	text-decoration: none;
+	border-right: 1px solid #fff;
+	padding: 10px;
+}
+.nav .btn_nav:hover {
+	color: orange;
+}
 section {
 	max-width: 380px;
 	margin: 20px auto;
@@ -80,7 +94,6 @@ section {
 	width: 100%;
     margin: 5px 0;
     text-align:center;
-
 }
 
 #turno, #especialidad, #curso {
