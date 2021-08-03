@@ -28,6 +28,7 @@ if(isset($_GET['id_curso_asig_precep'])){
         echo '</select>';    
         } 
         echo '<input type="submit" name="actualizar_precep" value="ACTUALIZAR" class="btn_submit">';
+        echo '<a href="precepxcurso.php" class="volver"><b>CANCELAR</b></a>';
         echo '</form>'; 
 }
 //fin presentacion formulario para modificar preceptores de un curso

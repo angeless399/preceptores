@@ -46,7 +46,16 @@ input {
     border: 1px solid #666;
     color: #ccc;
 }
-.btn_submit:hover {
+.volver {
+    display: block;
+    text-align: right;
+    text-decoration: none;
+    color: #3C6B7D;
+}
+.volver:hover {
+    color: orange;
+}
+.btn_submit:hover, #cancelar:hover {
     background-color: #000;
     color: orange;
 }

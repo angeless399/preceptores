@@ -9,7 +9,7 @@
 </head>
 <body>
   <header>
-    <p class="tit_encabezado">Escuela Secundaria - Sistema Preceptores por Curso</p>
+    <p class="tit_encabezado">E.E.S.T. - Sistema Preceptores por Curso</p>
     <div class="head">
       <a href="admin/inicio_admin.php" class="boton" target ="_blank">Administración</a>
     </div>
@@ -25,9 +25,9 @@
         <form action="index.php" method="get">
           <select id="especialidad" name="especialidad">
             <option value="">Especialidad</option>
-            <option value="1">CBT</option>
-            <option value="2">IPP</option>
-            <option value="3">ADO</option>
+            <option value="1">Ciclo Básico</option>
+            <option value="2">Informática</option>
+            <option value="3">Electrónica</option>
             <!--<option value="4">PROG</option>
             <option value="5">CATT</option>
             <option value="6">EGEOR</option>-->
@@ -57,7 +57,7 @@
     <div class="imagen">
     <img src="imagenes/footer2.png" width="100%" />
     <div class="text">
-      <p><span>© 2021 - López María de los Angeles - CURSO PHP 2021 - COMISION 2115</span></p>
+      <p><span>López María de los Angeles - Full Stack PHP 2021 - COMISION 2115</span></p>
     </div> 
     </div>    
     </footer>

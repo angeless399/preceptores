@@ -16,6 +16,7 @@ if(!isset($_SESSION['user'])){
     <link rel="stylesheet" href="css/estilos_admin.css">
     <link rel="stylesheet" href="iconos/style.css">	
     <title>Administración preceptores</title>
+    <script type="text/javascript" src="../js/main.js"></script>
 </head>
 <body style="background-image:none; background-color:#fff;">
     <main>
@@ -39,6 +40,7 @@ if(!isset($_SESSION['user'])){
       ?>
     </footer>
     </main>
+
 </body>
 </html>
 <?php 

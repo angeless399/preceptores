@@ -3,7 +3,8 @@
 <?php
 include ('../php/conexion.php');
 /* COMIENZO AGREGAR NUEVO REGISTRO */ ?>
- <form action="#" method="post" class="login">
+
+ <form action="#" method="post" class="login" id="login">
  	<h2 class="tit-form">Nuevo Preceptor</h2>
  	<input type="text" name="nombre" placeholder="Ing. nombre del preceptor">
 	 <input type="text" name="apellido" placeholder="Ing. apellido del preceptor">
@@ -26,6 +27,7 @@ if(isset($_POST['insertar'])){
 <?php
 /* COMIENZO ACTUALIZAR REGISTRO */
 if(isset($_GET['id_editar'])){
+	echo '<script>esconderInsertar()</script>';
 	$id=$_GET['id_editar'];
 	$sql="SELECT * FROM preceptores WHERE id_precep='$id'";
 	$ejecutar=mysqli_query($conexion,$sql);
@@ -37,7 +39,8 @@ if(isset($_GET['id_editar'])){
  	<input type="text" name="apellido" value="'.$registro['apellido_precep'].'">
  	<input type="email" name="institucional" value="'.$registro['correo_inst_precep'].'">
 	<input type="email" name="alternativo" value="'.$registro['correo_alt_precep'].'">
- 	<input type="submit" name="actualizar" value="ACTUALIZAR" class="btn_submit">
+ 	<input type="submit" name="actualizar" value="ACTUALIZAR" class="btn_submit" id="btn_submit">
+	<a href="administracion.php" class="volver"><b>CANCELAR</b></a>
  	</form>
 	';
 }
@@ -57,8 +60,12 @@ if(isset($_POST['actualizar'])){
 if(isset($_GET['id_borrar'])){
 	/*echo '<h2>borrar registros</h2>';*/
 	$id_borrar=$_GET['id_borrar'];
+	$sql_upc = "UPDATE cursos SET id_precep_curricular= '1' WHERE id_precep_curricular = '$id_borrar'";
+	$sql_upt = "UPDATE cursos SET id_precep_taller= '1' WHERE id_precep_taller = '$id_borrar'";
+	$resetear_upc = mysqli_query($conexion,$sql_upc);
+	$resetear_upt = mysqli_query($conexion,$sql_upt);
 	$sql="DELETE FROM preceptores WHERE id_precep='$id_borrar'";
-	$borrar=mysqli_query($conexion,$sql) ? print("<script>alert('Registro Eliminado'); window.location ='administracion.php'</script>") : print("<script>alert('error'); window.location ='administracion.php'</script>"); 
+	$borrar=mysqli_query($conexion,$sql) ? print("<script>alert('Preceptor Eliminado'); window.location ='administracion.php'</script>") : print("<script>alert('error al borrar preceptor'); window.location ='administracion.php'</script>"); 
 }
 /* FIN BORRAR REGISTRO */
 ?>
@@ -83,8 +90,8 @@ if(mysqli_num_rows($consulta)>0){
 				<div class="txt_reg"><b>Email Personal: </b>'.$registro['correo_alt_precep'].'</div>
 			</div>
 			<div class="btn_reg" >
-				<a href="../admin/administracion.php?id_editar='.$registro['id_precep'].'"><span class="lnr lnr-pencil"></span></a>
-				<a href="../admin/administracion.php?id_borrar='.$registro['id_precep'].'" onclick="return confirm(\'Seguro que desea eliminar este registro. No sera recuperable.\')"><span class="lnr lnr-trash"></span></a>
+				<a href="../admin/administracion.php?id_editar='.$registro['id_precep'].'"  id="edit"><span class="lnr lnr-pencil"></span></a>
+				<a href="../admin/administracion.php?id_borrar='.$registro['id_precep'].'" onclick="return confirm(\'Seguro que desea eliminar este registro. No sera recuperable.\')" id="edit"><span class="lnr lnr-trash"></span></a>
 			</div>
 		</div>';
 		}
