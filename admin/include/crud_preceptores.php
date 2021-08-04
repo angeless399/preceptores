@@ -4,7 +4,7 @@
 include ('../php/conexion.php');
 /* COMIENZO AGREGAR NUEVO REGISTRO */ ?>
 
- <form action="#" method="post" class="login" id="login">
+ <form action="" method="post" class="login" id="login">
  	<h2 class="tit-form">Nuevo Preceptor</h2>
  	<input type="text" name="nombre" placeholder="Ing. nombre del preceptor">
 	 <input type="text" name="apellido" placeholder="Ing. apellido del preceptor">
@@ -33,7 +33,7 @@ if(isset($_GET['id_editar'])){
 	$ejecutar=mysqli_query($conexion,$sql);
 	$registro=mysqli_fetch_assoc($ejecutar);
 	echo '
- 	<form action="#" method="post" class="login">
+ 	<form action="" method="post" class="login">
 	<h2 class="tit-form">Actualizar registro </h2>
  	<input type="text" name="nombre" value="'.$registro['nombre_precep'].'">
  	<input type="text" name="apellido" value="'.$registro['apellido_precep'].'">
@@ -50,7 +50,7 @@ if(isset($_POST['actualizar'])){
 	$actualizar_c_inst=$_POST['institucional'];
 	$actualizar_c_alt=$_POST['alternativo'];
 	$sql="UPDATE preceptores SET nombre_precep='$actualizar_nbr', apellido_precep='$actualizar_apel', correo_inst_precep='$actualizar_c_inst', correo_alt_precep='$actualizar_c_alt' WHERE id_precep='$id'";
-	$ejecutar_update=mysqli_query($conexion,$sql)? print("<script>alert('Registro Actualizado'); window.location ='administracion.php'</script>") : print("<script>alert('Error'); window.location ='administracion.php'</script>"); 
+	$ejecutar_update=mysqli_query($conexion,$sql)? print("<script>alert('Registro Actualizado'); window.location ='administracion.php'</script>") : print("<script>alert('Error'); window.location ='administracion.php'</script>");
 }
 /* FIN ACTUALIZAR REGISTRO */
 ?>

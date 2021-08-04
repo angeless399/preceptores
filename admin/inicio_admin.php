@@ -21,13 +21,14 @@
 
 <?php if(isset($_POST['entrar']))
 {
-	/*if ($_POST['usuario'] == "1234" && $_POST['password'] == "1234")
-	{*/
+	if ($_POST['usuario'] == "1234" && $_POST['password'] == "1234")
+	{
 		session_start();
 		$_SESSION['user']=$_POST['usuario'];
-		header('location:administracion.php');
-	/*}*/
-	/*else {echo '<script>alert("Datos Incorrectos. Intentelo nuevamente.")</script>';}*/
+		echo '<script>window.location.href="administracion.php"</script>';
+		/*header('location:administracion.php');*/
+	}
+	else {echo '<script>alert("Datos Incorrectos. Intentelo nuevamente.")</script>';}
 }?>
 </body>
 </html>

@@ -1,9 +1,8 @@
 <?php 
 session_start();
 if(!isset($_SESSION['user'])){
-    header('location:index.php');
+    echo '<script>window.location.href="../index.php"</script>';
 }else{
-    
 ?>
 <!DOCTYPE html>
 <html lang="en">
