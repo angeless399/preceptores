@@ -46,10 +46,24 @@ header a {
 	width: 150px;
 	text-align: center;
 }
-
+.nav {
+	background-color: #3C6B7D;
+	width: 100%;
+	padding: 10px;
+}
+.nav .btn_nav {
+	color: #fff;
+	width: 180px;
+	text-decoration: none;
+	border-right: 1px solid #fff;
+	padding: 10px;
+}
+.nav .btn_nav:hover {
+	color: orange;
+}
 section {
 	max-width: 380px;
-	margin: 6% auto;
+	margin: 20px auto;
 	background-color: rgba(0, 0,0, 0.5);
 	padding: 10px;
 	border-radius: 5px;
@@ -80,7 +94,6 @@ section {
 	width: 100%;
     margin: 5px 0;
     text-align:center;
-
 }
 
 #turno, #especialidad, #curso {
@@ -115,9 +128,9 @@ p {
 
 footer {	
 	width: 100%;
-	/*sacar para pginas interiones*/
+	/*sacar para pginas interiones
 	position: fixed;
-	bottom: 0;
+	bottom: 0;*/
 	z-index: 1;
 }
 
@@ -133,6 +146,7 @@ footer .imagen .text{
 	color: #fff;
 	padding: 5px;
 	font-size: 0.8em;
+	text-align: center;
 }
 
 @media screen and (max-width: 1024px) {
